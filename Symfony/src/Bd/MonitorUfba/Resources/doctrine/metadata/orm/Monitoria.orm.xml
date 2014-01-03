@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Monitoria" table="monitoria">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dataInicio" type="date" column="data_inicio" nullable="true"/>
+    <field name="dataFim" type="date" column="data_fim" nullable="true"/>
+    <field name="semestre" type="string" column="semestre" length="5" nullable="true"/>
+    <field name="status" type="string" column="status" length="45" nullable="true"/>
+    <field name="bolsa" type="boolean" column="bolsa" nullable="true"/>
+    <field name="idRelatorioAluno" type="string" column="id_relatorio_aluno" length="45" nullable="true"/>
+    <field name="idRelatorioProfessor" type="string" column="id_relatorio_professor" length="45" nullable="true"/>
+    <field name="unidade" type="string" column="unidade" length="45" nullable="true"/>
+    <field name="orgao" type="string" column="orgao" length="45" nullable="true"/>
+    <field name="componentesCurriculres" type="string" column="componentes_curriculres" length="45" nullable="true"/>
+    <field name="termo" type="string" column="termo" length="45" nullable="true"/>
+    <field name="idProfessorOrientador" type="integer" column="id_professor_orientador" nullable="true"/>
+    <many-to-one field="relatorioRelatorio" target-entity="Relatorio">
+      <join-columns>
+        <join-column name="relatorio_id_relatorio" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="professorProfessor" target-entity="Professor">
+      <join-columns>
+        <join-column name="professor_id_professor" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="certificadoCertificado" target-entity="Certificado">
+      <join-columns>
+        <join-column name="certificado_id_certificado" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="alunoAluno" target-entity="Aluno">
+      <join-columns>
+        <join-column name="aluno_id_aluno" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

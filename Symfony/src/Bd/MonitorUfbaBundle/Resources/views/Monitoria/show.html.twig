@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Monitoria</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Datainicio</th>
+                <td>{{ entity.dataInicio|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datafim</th>
+                <td>{{ entity.dataFim|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Semestre</th>
+                <td>{{ entity.semestre }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+            <tr>
+                <th>Bolsa</th>
+                <td>{{ entity.bolsa }}</td>
+            </tr>
+            <tr>
+                <th>Idrelatorioaluno</th>
+                <td>{{ entity.idRelatorioAluno }}</td>
+            </tr>
+            <tr>
+                <th>Idrelatorioprofessor</th>
+                <td>{{ entity.idRelatorioProfessor }}</td>
+            </tr>
+            <tr>
+                <th>Unidade</th>
+                <td>{{ entity.unidade }}</td>
+            </tr>
+            <tr>
+                <th>Orgao</th>
+                <td>{{ entity.orgao }}</td>
+            </tr>
+            <tr>
+                <th>Componentescurriculres</th>
+                <td>{{ entity.componentesCurriculres }}</td>
+            </tr>
+            <tr>
+                <th>Termo</th>
+                <td>{{ entity.termo }}</td>
+            </tr>
+            <tr>
+                <th>Idprofessororientador</th>
+                <td>{{ entity.idProfessorOrientador }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('monitoria') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('monitoria_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

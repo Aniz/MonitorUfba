@@ -1,0 +1,63 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Monitoria list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datainicio</th>
+                <th>Datafim</th>
+                <th>Semestre</th>
+                <th>Status</th>
+                <th>Bolsa</th>
+                <th>Idrelatorioaluno</th>
+                <th>Idrelatorioprofessor</th>
+                <th>Unidade</th>
+                <th>Orgao</th>
+                <th>Componentescurriculres</th>
+                <th>Termo</th>
+                <th>Idprofessororientador</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('monitoria_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.dataInicio %}{{ entity.dataInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dataFim %}{{ entity.dataFim|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.semestre }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{{ entity.bolsa }}</td>
+                <td>{{ entity.idRelatorioAluno }}</td>
+                <td>{{ entity.idRelatorioProfessor }}</td>
+                <td>{{ entity.unidade }}</td>
+                <td>{{ entity.orgao }}</td>
+                <td>{{ entity.componentesCurriculres }}</td>
+                <td>{{ entity.termo }}</td>
+                <td>{{ entity.idProfessorOrientador }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('monitoria_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('monitoria_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('monitoria_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

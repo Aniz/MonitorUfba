@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Projetodemonitoria" table="projetoDeMonitoria">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="resumo" type="string" column="resumo" length="45" nullable="false"/>
+    <field name="atividades" type="string" column="atividades" length="45" nullable="true"/>
+    <field name="bolsa" type="boolean" column="bolsa" nullable="true"/>
+    <field name="aprovado" type="boolean" column="aprovado" nullable="true"/>
+    <field name="vagasPedidas" type="integer" column="vagas_pedidas" nullable="false"/>
+    <field name="vagasAprovadas" type="integer" column="vagas_aprovadas" nullable="true"/>
+    <field name="chTotal" type="integer" column="ch_total" nullable="true"/>
+    <field name="chSemanal" type="integer" column="ch_semanal" nullable="true"/>
+    <field name="periodoInscricaoInicio" type="datetime" column="periodo_inscricao_inicio" nullable="true"/>
+    <field name="periodoInscricaoFinal" type="datetime" column="periodo_inscricao_final" nullable="true"/>
+    <field name="periodoSelecao" type="datetime" column="periodo_selecao" nullable="true"/>
+    <many-to-one field="professorProfessor" target-entity="Professor">
+      <join-columns>
+        <join-column name="professor_id_professor" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="selecao" target-entity="Selecao">
+      <join-columns>
+        <join-column name="selecao_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="editalCodigo" target-entity="Edital">
+      <join-columns>
+        <join-column name="edital_id_codigo" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="relatorioRelatorio" target-entity="Relatorio">
+      <join-columns>
+        <join-column name="relatorio_id_relatorio" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Aluno" table="aluno">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="curso" type="string" column="curso" length="45" nullable="true"/>
+    <field name="anoIngresso" type="string" column="ano_ingresso" length="5" nullable="true"/>
+    <field name="banco" type="integer" column="banco" nullable="true"/>
+    <field name="agencia" type="integer" column="agencia" nullable="true"/>
+    <field name="cc" type="integer" column="cc" nullable="true"/>
+    <field name="historico" type="text" column="historico" nullable="true"/>
+  </entity>
+</doctrine-mapping>

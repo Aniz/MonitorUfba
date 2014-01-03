@@ -1,0 +1,149 @@
+<?php
+
+namespace Bd\MonitorUfbaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Monitoria
+ *
+ * @ORM\Table(name="monitoria")
+ * @ORM\Entity
+ */
+class Monitoria
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_inicio", type="date", nullable=true)
+     */
+    private $dataInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_fim", type="date", nullable=true)
+     */
+    private $dataFim;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="semestre", type="string", length=5, nullable=true)
+     */
+    private $semestre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=45, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="bolsa", type="boolean", nullable=true)
+     */
+    private $bolsa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_relatorio_aluno", type="string", length=45, nullable=true)
+     */
+    private $idRelatorioAluno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_relatorio_professor", type="string", length=45, nullable=true)
+     */
+    private $idRelatorioProfessor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unidade", type="string", length=45, nullable=true)
+     */
+    private $unidade;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="orgao", type="string", length=45, nullable=true)
+     */
+    private $orgao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="componentes_curriculres", type="string", length=45, nullable=true)
+     */
+    private $componentesCurriculres;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="termo", type="string", length=45, nullable=true)
+     */
+    private $termo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_professor_orientador", type="integer", nullable=true)
+     */
+    private $idProfessorOrientador;
+
+    /**
+     * @var \Aluno
+     *
+     * @ORM\ManyToOne(targetEntity="Aluno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="aluno_id_aluno", referencedColumnName="id")
+     * })
+     */
+    private $alunoAluno;
+
+    /**
+     * @var \Certificado
+     *
+     * @ORM\ManyToOne(targetEntity="Certificado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="certificado_id_certificado", referencedColumnName="id")
+     * })
+     */
+    private $certificadoCertificado;
+
+    /**
+     * @var \Professor
+     *
+     * @ORM\ManyToOne(targetEntity="Professor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="professor_id_professor", referencedColumnName="id")
+     * })
+     */
+    private $professorProfessor;
+
+    /**
+     * @var \Relatorio
+     *
+     * @ORM\ManyToOne(targetEntity="Relatorio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="relatorio_id_relatorio", referencedColumnName="id")
+     * })
+     */
+    private $relatorioRelatorio;
+
+
+}

@@ -1,0 +1,67 @@
+<?php
+
+namespace Bd\MonitorUfbaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Aluno
+ *
+ * @ORM\Table(name="aluno")
+ * @ORM\Entity
+ */
+class Aluno
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="curso", type="string", length=45, nullable=true)
+     */
+    private $curso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ano_ingresso", type="string", length=5, nullable=true)
+     */
+    private $anoIngresso;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="banco", type="integer", nullable=true)
+     */
+    private $banco;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="agencia", type="integer", nullable=true)
+     */
+    private $agencia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cc", type="integer", nullable=true)
+     */
+    private $cc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="historico", type="text", nullable=true)
+     */
+    private $historico;
+
+
+}

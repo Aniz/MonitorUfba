@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Selecao list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nota</th>
+                <th>Idaluno</th>
+                <th>Idprojeto</th>
+                <th>Aprovado</th>
+                <th>Horarioatendimento</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('selecao_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nota }}</td>
+                <td>{{ entity.idAluno }}</td>
+                <td>{{ entity.idProjeto }}</td>
+                <td>{{ entity.aprovado }}</td>
+                <td>{{ entity.horarioAtendimento }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('selecao_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('selecao_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('selecao_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

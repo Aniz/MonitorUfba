@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Projetodemonitoria list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Resumo</th>
+                <th>Atividades</th>
+                <th>Bolsa</th>
+                <th>Aprovado</th>
+                <th>Vagaspedidas</th>
+                <th>Vagasaprovadas</th>
+                <th>Chtotal</th>
+                <th>Chsemanal</th>
+                <th>Periodoinscricaoinicio</th>
+                <th>Periodoinscricaofinal</th>
+                <th>Periodoselecao</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('projeto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.resumo }}</td>
+                <td>{{ entity.atividades }}</td>
+                <td>{{ entity.bolsa }}</td>
+                <td>{{ entity.aprovado }}</td>
+                <td>{{ entity.vagasPedidas }}</td>
+                <td>{{ entity.vagasAprovadas }}</td>
+                <td>{{ entity.chTotal }}</td>
+                <td>{{ entity.chSemanal }}</td>
+                <td>{% if entity.periodoInscricaoInicio %}{{ entity.periodoInscricaoInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.periodoInscricaoFinal %}{{ entity.periodoInscricaoFinal|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.periodoSelecao %}{{ entity.periodoSelecao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('projeto_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('projeto_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('projeto_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Projetodemonitoria</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Resumo</th>
+                <td>{{ entity.resumo }}</td>
+            </tr>
+            <tr>
+                <th>Atividades</th>
+                <td>{{ entity.atividades }}</td>
+            </tr>
+            <tr>
+                <th>Bolsa</th>
+                <td>{{ entity.bolsa }}</td>
+            </tr>
+            <tr>
+                <th>Aprovado</th>
+                <td>{{ entity.aprovado }}</td>
+            </tr>
+            <tr>
+                <th>Vagaspedidas</th>
+                <td>{{ entity.vagasPedidas }}</td>
+            </tr>
+            <tr>
+                <th>Vagasaprovadas</th>
+                <td>{{ entity.vagasAprovadas }}</td>
+            </tr>
+            <tr>
+                <th>Chtotal</th>
+                <td>{{ entity.chTotal }}</td>
+            </tr>
+            <tr>
+                <th>Chsemanal</th>
+                <td>{{ entity.chSemanal }}</td>
+            </tr>
+            <tr>
+                <th>Periodoinscricaoinicio</th>
+                <td>{{ entity.periodoInscricaoInicio|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Periodoinscricaofinal</th>
+                <td>{{ entity.periodoInscricaoFinal|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Periodoselecao</th>
+                <td>{{ entity.periodoSelecao|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('projeto') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('projeto_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

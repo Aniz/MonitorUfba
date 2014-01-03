@@ -1,0 +1,142 @@
+<?php
+
+namespace Bd\MonitorUfbaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projetodemonitoria
+ *
+ * @ORM\Table(name="projetoDeMonitoria")
+ * @ORM\Entity
+ */
+class Projetodemonitoria
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resumo", type="string", length=45, nullable=false)
+     */
+    private $resumo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="atividades", type="string", length=45, nullable=true)
+     */
+    private $atividades;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="bolsa", type="boolean", nullable=true)
+     */
+    private $bolsa;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="aprovado", type="boolean", nullable=true)
+     */
+    private $aprovado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vagas_pedidas", type="integer", nullable=false)
+     */
+    private $vagasPedidas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vagas_aprovadas", type="integer", nullable=true)
+     */
+    private $vagasAprovadas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ch_total", type="integer", nullable=true)
+     */
+    private $chTotal;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ch_semanal", type="integer", nullable=true)
+     */
+    private $chSemanal;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="periodo_inscricao_inicio", type="datetime", nullable=true)
+     */
+    private $periodoInscricaoInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="periodo_inscricao_final", type="datetime", nullable=true)
+     */
+    private $periodoInscricaoFinal;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="periodo_selecao", type="datetime", nullable=true)
+     */
+    private $periodoSelecao;
+
+    /**
+     * @var \Relatorio
+     *
+     * @ORM\ManyToOne(targetEntity="Relatorio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="relatorio_id_relatorio", referencedColumnName="id")
+     * })
+     */
+    private $relatorioRelatorio;
+
+    /**
+     * @var \Edital
+     *
+     * @ORM\ManyToOne(targetEntity="Edital")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="edital_id_codigo", referencedColumnName="id")
+     * })
+     */
+    private $editalCodigo;
+
+    /**
+     * @var \Selecao
+     *
+     * @ORM\ManyToOne(targetEntity="Selecao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="selecao_id", referencedColumnName="id")
+     * })
+     */
+    private $selecao;
+
+    /**
+     * @var \Professor
+     *
+     * @ORM\ManyToOne(targetEntity="Professor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="professor_id_professor", referencedColumnName="id")
+     * })
+     */
+    private $professorProfessor;
+
+
+}

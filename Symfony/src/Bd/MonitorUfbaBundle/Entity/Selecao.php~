@@ -1,0 +1,60 @@
+<?php
+
+namespace Bd\MonitorUfbaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Selecao
+ *
+ * @ORM\Table(name="selecao")
+ * @ORM\Entity
+ */
+class Selecao
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nota", type="string", length=45, nullable=true)
+     */
+    private $nota;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_aluno", type="string", length=45, nullable=true)
+     */
+    private $idAluno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_projeto", type="string", length=45, nullable=true)
+     */
+    private $idProjeto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aprovado", type="string", length=45, nullable=true)
+     */
+    private $aprovado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="horario_atendimento", type="string", length=45, nullable=true)
+     */
+    private $horarioAtendimento;
+
+
+}

@@ -1,0 +1,115 @@
+<?php
+
+namespace Bd\MonitorUfbaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pessoa
+ *
+ * @ORM\Table(name="pessoa")
+ * @ORM\Entity
+ */
+class Pessoa
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cpf", type="integer", nullable=false)
+     */
+    private $cpf;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=true)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="senha", type="string", length=16, nullable=true)
+     */
+    private $senha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rg", type="string", length=10, nullable=true)
+     */
+    private $rg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="orgao_emissor", type="string", length=6, nullable=true)
+     */
+    private $orgaoEmissor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="endereco", type="string", length=45, nullable=true)
+     */
+    private $endereco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefone", type="string", length=45, nullable=true)
+     */
+    private $telefone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tipo", type="integer", nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricula", type="string", length=9, nullable=true)
+     */
+    private $matricula;
+
+    /**
+     * @var \Professor
+     *
+     * @ORM\ManyToOne(targetEntity="Professor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="professor_id_professor", referencedColumnName="id")
+     * })
+     */
+    private $professorProfessor;
+
+    /**
+     * @var \Aluno
+     *
+     * @ORM\ManyToOne(targetEntity="Aluno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="aluno_id_aluno", referencedColumnName="id")
+     * })
+     */
+    private $alunoAluno;
+
+
+}

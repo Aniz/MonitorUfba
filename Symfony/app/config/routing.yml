@@ -1,0 +1,5 @@
+bd_monitor_ufba:
+    resource: "@BdMonitorUfbaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

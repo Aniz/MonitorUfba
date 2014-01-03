@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Aluno list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Curso</th>
+                <th>Anoingresso</th>
+                <th>Banco</th>
+                <th>Agencia</th>
+                <th>Cc</th>
+                <th>Historico</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('aluno_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.curso }}</td>
+                <td>{{ entity.anoIngresso }}</td>
+                <td>{{ entity.banco }}</td>
+                <td>{{ entity.agencia }}</td>
+                <td>{{ entity.cc }}</td>
+                <td>{{ entity.historico }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('aluno_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('aluno_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('aluno_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
